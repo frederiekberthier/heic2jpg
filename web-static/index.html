@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HEIC Converter</title>
+  <meta name="description" content="Zet HEIC-foto's om naar JPG, JPEG of PNG, rechtstreeks in je browser. Je foto's worden niet geüpload.">
+  <meta name="theme-color" content="#1c1d1e">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="./" class="brand"><span class="brand-slash" aria-hidden="true">/</span>heic2jpg
+      <span class="brand-sub">HEIC Converter</span></a>
+    <span class="header-note">Werkt in je browser: je foto's worden niet geüpload</span>
+  </header>
+
+  <main>
+    <h1>HEIC Converter</h1>
+    <p class="sub">Zet HEIC-foto's om naar JPG, JPEG of PNG. De omzetting gebeurt volledig in je browser.</p>
+
+    <p id="unsupported" class="banner err" hidden>
+      Deze browser ondersteunt de converter niet. Gebruik een recente versie van Edge, Chrome, Firefox of Safari.
+    </p>
+
+    <label id="drop" class="drop" tabindex="0">
+      <input id="picker" type="file" accept=".heic,.heif,image/heic,image/heif" multiple hidden>
+      <span class="drop-title">Sleep HEIC-bestanden hierheen</span>
+      <span class="drop-or">of</span>
+      <span class="btn primary">Kies bestanden</span>
+    </label>
+
+    <section class="settings" aria-label="Instellingen">
+      <div class="field">
+        <label for="format">Uitvoerformaat</label>
+        <select id="format">
+          <option value="jpg">JPG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+        </select>
+      </div>
+      <div class="field grow">
+        <label for="quality">Kwaliteit <output id="qval">90</output></label>
+        <input id="quality" type="range" min="1" max="100" value="90">
+        <small id="qhint">Hoger = betere kwaliteit, groter bestand.</small>
+      </div>
+      <div class="field">
+        <label for="maxsize">Max. afmeting (px)</label>
+        <input id="maxsize" type="number" min="0" step="1" placeholder="origineel">
+      </div>
+      <div class="field check">
+        <label><input id="exif" type="checkbox" checked> EXIF-metadata behouden</label>
+      </div>
+    </section>
+
+    <section id="list-wrap" hidden>
+      <div class="list-head">
+        <h2>Bestanden</h2>
+        <div class="actions">
+          <button id="clear" class="btn">Lijst leegmaken</button>
+          <button id="all" class="btn primary">Alles converteren…</button>
+        </div>
+      </div>
+      <ul id="list" class="list"></ul>
+      <p id="support" class="note"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>heic2jpg</strong> · HEIC naar JPG, JPEG of PNG ·
+    decoder: <a href="https://github.com/strukturag/libheif">libheif</a> (LGPL-3.0)
+  </footer>
+
+  <template id="row-tpl">
+    <li class="row">
+      <div class="thumb"><span class="spinner" aria-label="Laden"></span></div>
+      <div class="info">
+        <div class="orig"></div>
+        <label class="name-label">Opslaan als
+          <input class="name" type="text" spellcheck="false">
+        </label>
+        <div class="status"></div>
+      </div>
+      <div class="row-actions">
+        <button class="btn primary save">Converteren &amp; opslaan…</button>
+        <button class="btn remove" title="Verwijderen" aria-label="Verwijderen">✕</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="converter-client.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
