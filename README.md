@@ -1,6 +1,8 @@
 # heic2jpg
 Convert HEIC to different formats
 
+**Online: [graduaatiot.be/heic](https://graduaatiot.be/heic)**
+
 Een website die HEIC/HEIF-foto's (iPhone) omzet naar **JPG**, **JPEG** of **PNG**, volledig in de browser. Foto's worden niet geüpload: de HEIC-decoder ([libheif](https://github.com/strukturag/libheif) via [libheif-js](https://github.com/catdad-experiments/libheif-js) 1.23.5, WebAssembly) draait op de computer van de bezoeker. Daardoor werkt de site op gewone webhosting, zonder PHP, database of Python.
 
 ## Mogelijkheden
@@ -14,7 +16,9 @@ Een website die HEIC/HEIF-foto's (iPhone) omzet naar **JPG**, **JPEG** of **PNG*
 - Map en bestandsnaam zelf kiezen via het venster *Opslaan als* (Edge/Chrome), of alles in één keer naar een gekozen map
 
 ## Publiceren
-Upload de **inhoud** van `web-static/` (ook het verborgen bestand `.htaccess`) naar je webhosting, bv. naar `public_html/heic2jpg/`. Meer is niet nodig.
+De site staat online op **https://graduaatiot.be/heic**.
+
+Een nieuwe versie publiceer je door de **inhoud** van `web-static/` (ook het verborgen bestand `.htaccess`) naar de map `heic/` op de webhosting te uploaden. Meer is niet nodig.
 
 - Gebruik **https**. Het venster *Opslaan als* en *map kiezen* werken alleen via https (of `localhost`) en alleen in Edge en Chrome. In Firefox en Safari gaan de bestanden naar de Downloads-map, met de naam die je opgaf.
 - `.htaccess` zorgt dat Apache het `.wasm`-bestand met het juiste type (`application/wasm`) en met caching aanbiedt. Gebruik je nginx, voeg dan `application/wasm wasm;` toe aan de MIME-types.
