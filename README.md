@@ -13,7 +13,7 @@ Een website die HEIC/HEIF-foto's (iPhone) omzet naar **JPG**, **JPEG** of **PNG*
 - EXIF-metadata (camera, datum, ...) behouden of weglaten
 - Correcte oriëntatie: gedraaide foto's worden rechtgezet
 - Het ICC-kleurprofiel blijft behouden, dus iPhone-foto's (Display P3) behouden hun kleuren
-- Map en bestandsnaam zelf kiezen via het venster *Opslaan als* (Edge/Chrome), of alles in één keer naar een gekozen map
+- Map en bestandsnaam zelf kiezen via het venster *Opslaan als*, of alles in één keer naar een gekozen map (Edge/Chrome; andere browsers slaan op in Downloads)
 
 ## Publiceren
 De site staat online op **https://graduaatiot.be/heic**.
@@ -24,8 +24,8 @@ Een nieuwe versie publiceer je door de **inhoud** van `web-static/` (ook het ver
 - `.htaccess` zorgt dat Apache het `.wasm`-bestand met het juiste type (`application/wasm`) en met caching aanbiedt. Gebruik je nginx, voeg dan `application/wasm wasm;` toe aan de MIME-types.
 - Upload alleen `web-static/`. De rest van de repo (`tests/`, `requirements.txt`) is alleen voor ontwikkeling.
 
-## Lokaal proberen
-Je hebt een eenvoudige webserver nodig, bv. die van Python:
+## Lokaal proberen (voor ontwikkelaars)
+Je hebt een eenvoudige lokale webserver nodig. Elke webserver werkt, bv. de extensie *Live Server* in VS Code, of de webserver die in Python zit:
 
 ```powershell
 cd web-static
@@ -51,8 +51,8 @@ Bij PNG is er geen compressie-instelling, omdat de browser die niet aanbiedt.
 | `web-static/.htaccess` | MIME-types en caching voor Apache |
 | `tests/` | automatische tests (niet publiceren) |
 
-## Tests
-De tests draaien de echte website in een onzichtbaar Edge- of Chrome-venster en controleren de resultaten met Python (Pillow).
+## Tests (voor ontwikkelaars)
+De website zelf gebruikt geen Python. Alleen de automatische tests zijn in Python geschreven (pytest). Ze draaien de echte website in een onzichtbaar Edge- of Chrome-venster en controleren de resultaten met de beeldbibliotheek Pillow. Daarvoor zijn Python 3.10+ en de pakketten uit `requirements.txt` nodig.
 
 ```powershell
 python -m venv .venv
