@@ -1,0 +1,176 @@
+/* Stijl afgestemd op graduaatiot.be/subnetting: Nunito (koppen) + Open Sans (tekst),
+   donkere balk, cyaan accent #44c8f5. Lettertypen lokaal (SIL Open Font License). */
+@font-face { font-family: "Nunito Variable"; font-style: normal; font-display: swap; font-weight: 200 1000;
+  src: url(fonts/nunito-latin-wght-normal.woff2) format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Nunito Variable"; font-style: normal; font-display: swap; font-weight: 200 1000;
+  src: url(fonts/nunito-latin-ext-wght-normal.woff2) format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Open Sans Variable"; font-style: normal; font-display: swap; font-weight: 300 800;
+  src: url(fonts/open-sans-latin-wght-normal.woff2) format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Open Sans Variable"; font-style: normal; font-display: swap; font-weight: 300 800;
+  src: url(fonts/open-sans-latin-ext-wght-normal.woff2) format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  --bg: #f4fafc;
+  --surface: #fff;
+  --text: #343a40;
+  --heading: #1c1d1e;
+  --muted: #5f6b76;
+  --border: #d9e6ec;
+  --brand: #44c8f5;
+  --brand-hover: #22b5e8;
+  --brand-soft: #e3f5fd;
+  --on-brand: #1c1d1e;
+  --link: #006eb0;
+  --focus: #006eb0;
+  --bar: #1c1d1e;
+  --bar-text: #fff;
+  --bar-muted: #b9c0c7;
+  --ok: #00756f;
+  --ok-bg: #e0f4f2;
+  --err: #c82333;
+  --err-bg: #fbe7e9;
+  --shadow: 0 1px 2px #1c1d1e0a, 0 4px 16px #1c1d1e0f;
+  --radius: 16px;
+  --font-body: "Open Sans Variable", "Open Sans", Arial, Verdana, sans-serif;
+  --font-heading: "Nunito Variable", "Nunito", "Arial Rounded MT Bold", var(--font-body);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121416;
+    --surface: #1c1d1e;
+    --text: #e4e5e6;
+    --heading: #fff;
+    --muted: #a7aeb5;
+    --border: #30353a;
+    --brand-soft: #10303d;
+    --link: #44c8f5;
+    --focus: #44c8f5;
+    --bar: #0b0c0d;
+    --ok: #3fc9bf;
+    --ok-bg: #10302e;
+    --err: #ff7b86;
+    --err-bg: #3a1a1e;
+    --shadow: none;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 1rem; line-height: 1.6;
+}
+h1, h2 { font-family: var(--font-heading); color: var(--heading); font-weight: 800; line-height: 1.2; }
+h1 { margin: 0 0 .5rem; font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem); }
+h2 { margin: 0; font-size: 1.3rem; }
+
+/* --- balk boven/onder --- */
+.site-header {
+  background: var(--bar); color: var(--bar-text);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 0 1.5rem; padding: 0 1rem; min-height: 56px;
+}
+.brand {
+  font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em;
+  color: var(--bar-text); text-decoration: none; display: flex; align-items: baseline; gap: .1rem; padding: .7rem 0;
+}
+.brand-slash { color: var(--brand); }
+.brand-sub { font-family: var(--font-body); color: var(--bar-muted); margin-left: .6rem; font-size: .75rem; font-weight: 400; }
+.header-note { color: var(--bar-muted); font-size: .85rem; }
+.site-footer {
+  background: var(--bar); color: var(--bar-muted);
+  padding: 1rem 1.25rem; font-size: .85rem; text-align: center;
+}
+.site-footer strong { font-family: var(--font-heading); color: var(--bar-text); }
+
+main { flex: 1; width: 100%; max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.sub { margin: 0 0 1.5rem; color: var(--muted); }
+
+/* --- dropzone --- */
+.drop {
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  padding: 2.5rem 1rem; text-align: center; cursor: pointer;
+  border: 2px dashed var(--brand); border-radius: var(--radius);
+  background: var(--brand-soft);
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.drop:hover, .drop.over { border-style: solid; transform: translateY(-2px); }
+.drop:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.drop-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.drop-or { color: var(--muted); }
+
+/* --- knoppen --- */
+.btn {
+  min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 1.4rem; border: 2px solid var(--brand); border-radius: 999px;
+  background: transparent; color: var(--heading);
+  font-family: var(--font-heading); font-size: 1rem; font-weight: 800;
+  cursor: pointer; transition: background .15s;
+}
+.btn:hover { background: var(--brand-soft); }
+.btn.primary { background: var(--brand); color: var(--on-brand); }
+.btn.primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn.remove { padding: 0; width: 44px; }
+.btn:focus-visible, select:focus, input:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* --- instellingen --- */
+.settings {
+  display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: flex-end;
+  margin: 1.5rem 0; padding: 1.5rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.field { display: flex; flex-direction: column; gap: .3rem; min-width: 140px; }
+.field.grow { flex: 1 1 220px; }
+.field label { font-family: var(--font-heading); font-weight: 800; color: var(--heading); }
+.field output { color: var(--link); }
+.field small { color: var(--muted); }
+.field.check label { font-family: var(--font-body); font-weight: 400; color: var(--text); display: flex; gap: .5rem; align-items: center; min-height: 44px; }
+select, input[type=number], input[type=text] {
+  font: inherit; font-size: 1rem; min-height: 44px; padding: 0 .75rem;
+  color: var(--text); background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 10px;
+}
+input[type=range] { width: 100%; accent-color: var(--brand); min-height: 28px; }
+input[type=checkbox] { accent-color: var(--brand); width: 18px; height: 18px; }
+
+/* --- bestandenlijst --- */
+.list-head { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
+.row {
+  display: grid; grid-template-columns: 88px 1fr auto; gap: 1rem; align-items: center;
+  padding: 1rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); transition: border-color .15s;
+}
+.row:hover { border-color: var(--brand); }
+.thumb {
+  width: 88px; height: 88px; border-radius: 10px; overflow: hidden;
+  background: var(--brand-soft); display: grid; place-items: center; color: var(--muted);
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.info { min-width: 0; display: flex; flex-direction: column; gap: .25rem; }
+.orig { font-family: var(--font-heading); font-weight: 800; color: var(--heading); overflow-wrap: anywhere; }
+.name-label { font-size: .85rem; color: var(--muted); display: flex; flex-direction: column; gap: .2rem; }
+.name { width: 100%; }
+.status { font-size: .85rem; color: var(--muted); min-height: 1.6em; }
+.status.ok, .status.err { padding: .15rem .6rem; border-radius: 8px; align-self: flex-start; font-weight: 600; }
+.status.ok { color: var(--ok); background: var(--ok-bg); }
+.status.err { color: var(--err); background: var(--err-bg); }
+.row-actions { display: flex; gap: .5rem; }
+.note { color: var(--muted); font-size: .85rem; }
+
+@media (max-width: 600px) {
+  .brand-sub, .header-note { display: none; }
+  main { padding: 1.25rem 1rem 2rem; }
+  .row { grid-template-columns: 64px 1fr; }
+  .thumb { width: 64px; height: 64px; }
+  .row-actions { grid-column: 1 / -1; }
+  .row-actions .save { flex: 1; }
+}

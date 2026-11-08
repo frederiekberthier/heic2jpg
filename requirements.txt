@@ -1,0 +1,4 @@
+pillow>=11
+pillow-heif>=0.20
+flask>=3
+pytest>=8
