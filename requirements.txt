@@ -1,0 +1,4 @@
+# Enkel nodig om de tests uit te voeren (de website zelf heeft geen Python nodig)
+pillow>=11
+pillow-heif>=0.20
+pytest>=8
